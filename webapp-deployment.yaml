@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - name: webapp
+        image: dineshmk/node-app:dinesh3                 
+        ports:
+        - containerPort: 80
+          name: webapp
+        env:
+        - name: DB_HOST
+          value: db-service
+        - name: DB_PORT
+          value: "3306"
+        - name: DB_NAME
+          value: dineshdb
+        - name: DB_USER
+          value: dinesh
+        - name: DB_PASSWORD
+          value: Banglore#1998
+        
