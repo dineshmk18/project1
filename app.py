@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 
 
@@ -44,7 +44,7 @@ def submit():
           db.session.add(new_patient)
           db.session.commit()
 
-        return 'Patient details submitted successfully'
+        return redirect('/patient_list')
     
     return render_template('patient_form.html')
 
