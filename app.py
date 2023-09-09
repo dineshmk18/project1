@@ -30,10 +30,12 @@ with app.app_context():
 @app.route('/', methods=['GET', 'POST'])
 def submit():
     if request.method == 'POST':
-        name = request.form['name']
-        age = request.form['age']
-        gender = request.form['gender']
-        symptoms = request.form['symptoms']
+        # fetch the form data
+        userDetails = request.form
+        name = userDetails['name']
+        age = userDetails['age']
+        gender = userDetails['gender']
+        symptoms = userDetails['symptoms']
 
         new_patient = Patient(name=name, age=age, gender=gender, symptoms=symptoms)
 
@@ -46,6 +48,10 @@ def submit():
     
     return render_template('patient_form.html')
 
+@app.route('/patient_list', methods=['GET'])
+def patient_list():
+    patients = Patient.query.all()
+    return render_template('patient_list.html', patients=patients)
 
 if __name__ == '__main__':
     
