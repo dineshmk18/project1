@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: db-deployment
+  name: database-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: db
+      app: database
   template:
     metadata:
       labels:
-        app: db
+        app: database
     spec:
       containers:
       - name: mysql
@@ -26,5 +26,5 @@ spec:
           value: Banglore#1998
         ports:
         - containerPort: 3306
-          name: db
+          name: database
         

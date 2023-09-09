@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: webapp-deployment
+  name: app-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: webapp
+      app: web-app
   template:
     metadata:
       labels:
-        app: webapp
+        app: web-app
     spec:
       containers:
-      - name: webapp
-        image: dineshmk/node-app:dinesh3                 
+      - name: web-app
+        image: dineshmk/node-app:dinesh4                 
         ports:
         - containerPort: 80
-          name: webapp
+          name: web-app
         env:
         - name: DB_HOST
-          value: db-service
+          value: db-server
         - name: DB_PORT
           value: "3306"
         - name: DB_NAME

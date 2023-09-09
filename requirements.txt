@@ -1,4 +1,4 @@
 Flask
-gunicorn
 SQLAlchemy
+gunicorn
 flask_sqlalchemy

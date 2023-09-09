@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 
                                                                
-db_uri = f'mysql+mysqlconnector://dinesh:Banglore#1998@db-service:3306/dineshdb'
+db_uri = f'mysql+mysqlconnector://dinesh:Banglore#1998@db-server:3306/dineshdb'
 app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 
 
